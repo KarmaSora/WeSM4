@@ -9,5 +9,6 @@ session_start();
 include('./inc/unknownUserMenu.php');
 }
 if(isset($_SESSION['inloggad'])){
+    echo('welcome you are logged in as ' .  $_SESSION['username'] . ' \n');
 include('./inc/knownUserMenu.php');} ?>
   
