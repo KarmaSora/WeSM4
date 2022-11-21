@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <title>Filhantering Skriv</title>
 </head>
-
 <body>
-
     <?php // filen motsvarat personWrite.php i M2, som i mitt fall är en blanding av personWrite och personRead
+
     include("./Person.php");
     $personArray = array();
 
@@ -47,8 +46,6 @@
         echo "<p><strong>Lösenord: </strong>" . $personArray[$i]->getPassWord() . "</p>";
         echo "<hr>";
     }
-
-
     ?>
 
     <a href="../index.php">Go to login page!</a>

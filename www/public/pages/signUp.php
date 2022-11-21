@@ -9,6 +9,7 @@
 <br>
 <label> password</label>
 <input type="password" name="pwd">
+<input type="hidden" name="CSRFToken" value = "<?php echo($_SESSION['CSRFToken']);?>" >
 <br>
 <input type="submit" value="send"> 
 
