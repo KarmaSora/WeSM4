@@ -28,12 +28,12 @@
     $newPwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $newPwd = strip_tags($_POST['pwd']);
 
-    $hashCode = password_hash($newPwd , PASSWORD_DEFAULT);
+    $hashCodePwd = password_hash($newPwd , PASSWORD_DEFAULT);
 
     $file = "../../person.dat";
     if (file_exists($file)) {
         $personArray = unserialize(file_get_contents($file));
-        $personArray[] = new Person($newFirstName, $newAfterName, $newUser, $newPwd);
+        $personArray[] = new Person($newFirstName, $newAfterName, $newUser,  $hashCodePwd);
     }
     file_put_contents($file, serialize($personArray));
 
