@@ -19,7 +19,7 @@ if ($_SESSION['CSRFToken'] == $_POST['CSRFToken']) {
 
 
     $password = $_POST['pwd'];
-    //$hashedPass = password_hash($_POST['pwd'] , PASSWORD_DEFAULT);
+    $hashedPass = password_hash($_POST['pwd'] , PASSWORD_DEFAULT);
     // echo "<br><br>". " password in hash code is: ". "<br>" . $hashedPass . "<br><br>";
 
 
@@ -37,8 +37,9 @@ if ($_SESSION['CSRFToken'] == $_POST['CSRFToken']) {
         $_SESSION['inLoggad'] = true;
         $_SESSION['username'] = $username;
         echo ("welcome $username");
+        header("Location: ../index.php");
         exit;
-    }
+    }       
 
     for ($i = 0; $i < count($personArray); $i++) {
         echo "loopar " . $i . " : " . $personArray[$i]->getUserName()  . " : " .  $personArray[$i]->getPassWord() . "<br>";
@@ -48,15 +49,15 @@ if ($_SESSION['CSRFToken'] == $_POST['CSRFToken']) {
             $_SESSION['username'] = $_POST['user'];
             header("location: ../index.php");
             echo "<br><br><br>HHHH";
-
-            exit;
             header("../index.php");
+            exit;
+         
         }
     }
 
     //header("Location: ../index.php");
 } else {
     echo "Inte OK!";
-    // header('../index.php');
+     header('../index.php');
     exit;
 }
