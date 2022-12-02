@@ -13,23 +13,22 @@ if (session_status() == PHP_SESSION_NONE) {
   }
  * 
  */
+$user = array("admin"=>"12345", "hank"=>"321", "test"=>"qwerty"); // en array kan tas bort
 
+foreach($user as $keyOfUser => $valOfPass) { //loop igenom arrayn
+  echo "Key=" . $keyOfUser . ", Value=" . $valOfPass; // skriva ut key och value, i detta fall user och password
+  echo "<br>";
+}
 
  
 $password = $_POST['pwd'];
 $hashedPassWordTest =  password_hash($password, PASSWORD_DEFAULT);
 $username = $_POST['user'];
-$user['admin'] = $hashedPassWordTest;
+$user['admin'] = $hashedPassWordTest;           //samma som övan men med hashad lödsenord
 $user['hank'] = $hashedPassWordTest;
 $user['test'] =  $hashedPassWordTest;
 
-/* 
-if (password_verify($password, $hashedPassWordTest)) {
-   echo ('ok');
-} else {
-   echo ('not ok');
-}
-*/
+
 
 
 header('/home/karam/Skrivbord/WebbServer/Server-moment4/www/public/index.php');
